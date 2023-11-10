@@ -61,14 +61,6 @@ const start = async () => {
       next();
     });
     app.use(express.json());
-    app.use(userRouter);
-    app.use(movieRouter);
-    app.use(cinemaRouter);
-    app.use(showtimeRouter);
-    app.use(reservationRouter);
-    app.use(invitationsRouter);
-    app.use(metricsRouter);
-
     app.use(
       responseTime((req, res, time) => {
         if (req?.route?.path) {
@@ -83,6 +75,14 @@ const start = async () => {
         }
       })
     );
+
+    app.use(userRouter);
+    app.use(movieRouter);
+    app.use(cinemaRouter);
+    app.use(showtimeRouter);
+    app.use(reservationRouter);
+    app.use(invitationsRouter);
+    app.use(metricsRouter);
 
     app.get("/health", (req, res) => {
       res.send({ "API Server": "OK" });
