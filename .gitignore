@@ -94,3 +94,5 @@ typings/
 avatars/
 images/
 uploads/
+
+prometheus-data/
