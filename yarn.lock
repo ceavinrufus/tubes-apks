@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@opentelemetry/api@^1.4.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@opentelemetry/api/-/api-1.7.0.tgz"
+  integrity sha512-AdY5wvN0P2vXBi3b29hxZgSFvdhdxPB9+f0B6s//P9Q8nibRWeA3cHm8UmLpio9ABigkVHJ5NMPk+Mz8VCCyrw==
+
 "@types/bson@*", "@types/bson@1.x || 4.0.x":
   version "4.0.5"
   resolved "https://registry.npmjs.org/@types/bson/-/bson-4.0.5.tgz"
@@ -170,6 +175,11 @@ binary-extensions@^1.0.0:
   version "1.13.1"
   resolved "https://registry.npmjs.org/binary-extensions/-/binary-extensions-1.13.1.tgz"
   integrity sha512-Un7MIEDdUC5gNpcGDV97op1Ywk748MpHcFTHoYs6qnj1Z3j7I53VG3nwZhKzoBZmbdRNnb6WRdFlwl7tSDuZGw==
+
+bintrees@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/bintrees/-/bintrees-1.0.2.tgz"
+  integrity sha512-VOMgTMwjAaUG580SXn3LacVgjurrbMme7ZZNYGSSV7mmtY6QQRh0Eg3pwIcntQ77DErK1L0NxkbetjcoXzVwKw==
 
 bl@^2.2.1:
   version "2.2.1"
@@ -548,6 +558,11 @@ denque@^1.4.1:
   version "1.5.1"
   resolved "https://registry.npmjs.org/denque/-/denque-1.5.1.tgz"
   integrity sha512-XwE+iZ4D6ZUB7mfYRMb5wByE8L74HCn30FBN7sWnXksWc1LO1bPDl67pBR9o/kC4z/xSNAwkMYcGgqDV3BE3Hw==
+
+depd@~1.1.0:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz"
+  integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
 depd@2.0.0:
   version "2.0.0"
@@ -1710,6 +1725,11 @@ on-finished@^2.3.0, on-finished@2.4.1:
   dependencies:
     ee-first "1.1.1"
 
+on-headers@~1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/on-headers/-/on-headers-1.0.2.tgz"
+  integrity sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA==
+
 optional-require@^1.1.8:
   version "1.1.8"
   resolved "https://registry.npmjs.org/optional-require/-/optional-require-1.1.8.tgz"
@@ -1825,6 +1845,14 @@ process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
+
+prom-client@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.npmjs.org/prom-client/-/prom-client-15.0.0.tgz"
+  integrity sha512-UocpgIrKyA2TKLVZDSfm8rGkL13C19YrQBAiG3xo3aDFWcHedxRxI3z+cIcucoxpSO0h5lff5iv/SXoxyeopeA==
+  dependencies:
+    "@opentelemetry/api" "^1.4.0"
+    tdigest "^0.1.1"
 
 proxy-addr@~2.0.7:
   version "2.0.7"
@@ -1980,6 +2008,14 @@ resolve-url@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmjs.org/resolve-url/-/resolve-url-0.2.1.tgz"
   integrity sha512-ZuF55hVUQaaczgOIwqWzkEcEidmlD/xl44x1UZnhOXcYuFN2S6+rcxpG+C1N3So0wvNI3DmJICUFfu2SxhBmvg==
+
+response-time@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.npmjs.org/response-time/-/response-time-2.3.2.tgz"
+  integrity sha512-MUIDaDQf+CVqflfTdQ5yam+aYCkXj1PY8fjlPDQ6ppxJlmgZb864pHtA750mayywNg8tx4rS7qH9JXd/OF+3gw==
+  dependencies:
+    depd "~1.1.0"
+    on-headers "~1.0.1"
 
 ret@~0.1.10:
   version "0.1.15"
@@ -2273,6 +2309,13 @@ supports-color@^5.3.0, supports-color@^5.5.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
+
+tdigest@^0.1.1:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/tdigest/-/tdigest-0.1.2.tgz"
+  integrity sha512-+G0LLgjjo9BZX2MfdvPfH+MKLCrxlXSYec5DaPYP1fe6Iyhf0/fSmJ0bFiZ1F8BT6cGXl2LpltQptzjXKWEkKA==
+  dependencies:
+    bintrees "1.0.2"
 
 term-size@^1.2.0:
   version "1.2.0"
