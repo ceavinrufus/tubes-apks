@@ -2,6 +2,7 @@ const metricsUtils = require("./utils/metrics");
 const restResponseTimeHistogram = metricsUtils.restResponseTimeHistogram;
 const startMetricsServer = metricsUtils.startMetricsServer;
 const responseTime = require("response-time");
+const client = require("prom-client");
 
 require("dotenv").config();
 const express = require("express");
@@ -18,6 +19,10 @@ const start = async () => {
       require("dotenv").config({ path: path.join(__dirname, "../.env") });
     }
 
+    const collectDefaultMetrics = client.collectDefaultMetrics;
+
+    collectDefaultMetrics();
+
     // Routes
     const userRouter = require("./routes/users");
     const movieRouter = require("./routes/movies");
@@ -25,6 +30,7 @@ const start = async () => {
     const showtimeRouter = require("./routes/showtime");
     const reservationRouter = require("./routes/reservation");
     const invitationsRouter = require("./routes/invitations");
+    const metricsRouter = require("./routes/metrics");
 
     app.disable("x-powered-by");
     const port = process.env.PORT || 8080;
@@ -61,6 +67,7 @@ const start = async () => {
     app.use(showtimeRouter);
     app.use(reservationRouter);
     app.use(invitationsRouter);
+    app.use(metricsRouter);
 
     app.use(
       responseTime((req, res, time) => {
