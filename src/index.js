@@ -1,8 +1,4 @@
-const metricsUtils = require("./utils/metrics");
-const restResponseTimeHistogram = metricsUtils.restResponseTimeHistogram;
-const startMetricsServer = metricsUtils.startMetricsServer;
-const responseTime = require("response-time");
-const client = require("prom-client");
+const apiMetrics = require("prometheus-api-metrics");
 
 require("dotenv").config();
 const express = require("express");
@@ -18,10 +14,6 @@ const start = async () => {
     if (process.env.NODE_ENV !== "production") {
       require("dotenv").config({ path: path.join(__dirname, "../.env") });
     }
-
-    const collectDefaultMetrics = client.collectDefaultMetrics;
-
-    collectDefaultMetrics();
 
     // Routes
     const userRouter = require("./routes/users");
@@ -61,20 +53,7 @@ const start = async () => {
       next();
     });
     app.use(express.json());
-    app.use(
-      responseTime((req, res, time) => {
-        if (req?.route?.path) {
-          restResponseTimeHistogram.observe(
-            {
-              method: req.method,
-              route: req.route.path,
-              status_code: res.statusCode,
-            },
-            time * 1000
-          );
-        }
-      })
-    );
+    app.use(apiMetrics());
 
     app.use(userRouter);
     app.use(movieRouter);
@@ -94,8 +73,6 @@ const start = async () => {
       res.status(404).send({ message: "path not found" });
     });
     app.listen(port, () => console.log(`app is running in PORT: ${port}`));
-
-    startMetricsServer();
   } catch (err) {
     console.log(err);
     app.get("/health", (req, res) => {
