@@ -15,6 +15,10 @@ const start = async () => {
       require("dotenv").config({ path: path.join(__dirname, "../.env") });
     }
 
+    const collectDefaultMetrics = client.collectDefaultMetrics;
+
+    collectDefaultMetrics();
+
     // Routes
     const userRouter = require("./routes/users");
     const movieRouter = require("./routes/movies");
